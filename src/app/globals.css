@@ -27,3 +27,8 @@ body {
 html, body {
   font-family: "Times New Roman", Times, serif;
 }
+
+.popup-border
+{
+  border-image: url("/images/backgrounds/popup/border.png") 20% 20% / 2.5rem / 1.2rem stretch;
+}

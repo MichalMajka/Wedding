@@ -2,15 +2,28 @@
 
 import Shelf from "@/blocks/spells/shelf";
 import DrinkDetails, {IDrink} from "@/blocks/details_popup";
-import React from "react";
-import ShelfTop from "@/blocks/spells/shelfTop";
-import ShelfBottom from "@/blocks/spells/shelfBottom";
+import React, {act} from "react";
+import ShelfTop from "@/blocks/spells/shelf_top";
+import ShelfBottom from "@/blocks/spells/shelf_bottom";
 import {Button} from "@headlessui/react";
+import SpellIcon from "@/blocks/spells/spell_icon";
+import MagicSchool from "@/blocks/spells/magic_school";
+
+const banners : { [id: string] : string; } = {
+    "Słodki" : "air",
+    "Wytrawny" : "fire",
+    "Kwaśny" : "earth",
+    "Bezalkoholowy" : "water"
+}
 
 export default function Drinks({value}: { value: string }) {
     const [isOpen, setIsOpen] = React.useState(false);
     const [drink, setDrink] = React.useState<IDrink | null>(null);
     const [activeCategory, setActiveCategory] = React.useState<string>("Słodki");
+    const banner = () => {
+        return banners[activeCategory];
+    }
+    
     const openDrink = (drink: IDrink) => {
         setDrink(drink)
         setIsOpen(true);
@@ -18,12 +31,12 @@ export default function Drinks({value}: { value: string }) {
 
     const drinksSplit = () => {
         const drinks = (JSON.parse(value) as IDrink[]);
-        
+
         const categories = new Set(drinks.map(x => x.category));
         const byCategory = [...categories].map(x => {
             return {
-                category : x,
-                drinks : drinks.filter(drink => drink.category === x).sort((a,b) => a.power - b.power)
+                category: x,
+                drinks: drinks.filter(drink => drink.category === x).sort((a, b) => a.power - b.power)
             }
         })
         const largestCategory = Math.max(...byCategory.map(x => x.drinks.length))
@@ -35,7 +48,7 @@ export default function Drinks({value}: { value: string }) {
     return <>
         <DrinkDetails drink={drink} isOpen={isOpen} setIsOpen={setIsOpen}/>
         <div className="container">
-            <ShelfTop/>
+            <ShelfTop><MagicSchool name={banner()} className={"h-9/10"} /></ShelfTop>
             {
                 drinksSplit().map((shelf, shelfIndex) => {
                     return <Shelf key={shelfIndex}>
@@ -44,8 +57,7 @@ export default function Drinks({value}: { value: string }) {
                                 return <div
                                     className="bg-no-repeat bg-cover bg-[url(/images/backgrounds/scroll.png)] h-9/10 aspect-326/237 flex justify-center items-center"
                                     onClick={() => openDrink(drink)} key={drinkIndex}>
-                                    <div
-                                        className={"bg-no-repeat bg-cover bg-[url(/images/spells/summon_boat.png)] h-6/10  aspect-211/164"}></div>
+                                    <SpellIcon name={drink.metadata.resources.image} className="h-11/14" />
                                 </div>
                             })
                         }

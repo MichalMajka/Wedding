@@ -10,7 +10,12 @@
             "brązowy cukier"
         ],
         "category" : "Kwaśny",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Resurrection"
+            }
+        }
     },
     {
         "name" : {
@@ -25,7 +30,12 @@
             "syrop cukrowy"
         ],
         "category" : "Kwaśny",
-        "power": 3
+        "power": 3,
+        "metadata" : {
+            "resources": {
+                "image": "Implosion"
+            }
+        }
     },
     {
         "name" : {
@@ -38,7 +48,12 @@
             "ogórek"
         ],
         "category" : "Kwaśny",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Meteor_Shower"
+            }
+        }
     },
     {
         "name" : {
@@ -51,7 +66,12 @@
             "blue / marakuja / malina / ogórek"
         ],
         "category" : "Kwaśny",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Town_Portal"
+            }
+        }
     },
     {
         "name" : {
@@ -64,7 +84,12 @@
             "Nieznany"
         ],
         "category" : "Kwaśny",
-        "power": 3
+        "power": 3,
+        "metadata" : {
+            "resources": {
+                "image": "Anti-Magic"
+            }
+        }
     },
     {
         "name" : {
@@ -79,7 +104,12 @@
             "opalone wiórki dębowe"
         ],
         "category" : "Wytrawny",
-        "power": 3
+        "power": 3,
+        "metadata" : {
+            "resources": {
+                "image": "Inferno"
+            }
+        }
     },
     {
         "name" : {
@@ -96,7 +126,12 @@
             "sos worcestershire"
         ],
         "category" : "Wytrawny",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Blind"
+            }
+        }
     },
     {
         "name" : {
@@ -110,7 +145,12 @@
             "rozmaryn"
         ],
         "category" : "Wytrawny",
-        "power": 4
+        "power": 4,
+        "metadata" : {
+            "resources": {
+                "image": "Berserk"
+            }
+        }
     },
     {
         "name" : {
@@ -124,7 +164,12 @@
             "sok żurawinowy"
         ],
         "category" : "Wytrawny",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Fire_Wall"
+            }
+        }
     },
     {
         "name" : {
@@ -140,7 +185,12 @@
             "tabasco"
         ],
         "category" : "Wytrawny",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Armageddon"
+            }
+        }
     },
     {
         "name": {
@@ -152,7 +202,12 @@
             "likier kawowy"
         ],
         "category" : "Wytrawny",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Fireball"
+            }
+        }
     },
     {
         "name": {
@@ -165,7 +220,12 @@
             "sok ananasowy"
         ],
         "category" : "Bezalkoholowy",
-        "power": 0
+        "power": 0,
+        "metadata" : {
+            "resources": {
+                "image": "Bless"
+            }
+        }
     },
     {
         "name": {
@@ -179,7 +239,12 @@
             "woda sodowa"
         ],
         "category" : "Bezalkoholowy",
-        "power": 0
+        "power": 0,
+        "metadata" : {
+            "resources": {
+                "image": "Cure"
+            }
+        }
     },
     {
         "name": {
@@ -191,7 +256,12 @@
             "borówki"
         ],
         "category" : "Bezalkoholowy",
-        "power": 0
+        "power": 0,
+        "metadata" : {
+            "resources": {
+                "image": "Summon_Boat"
+            }
+        }
     },
     {
         "name": {
@@ -205,7 +275,12 @@
             "sok z cytryny"
         ],
         "category" : "Bezalkoholowy",
-        "power": 0
+        "power": 0,
+        "metadata" : {
+            "resources": {
+                "image": "Ice_Bolt"
+            }
+        }
     },
     {
         "name": {
@@ -219,7 +294,12 @@
             "syrop cynamonowy"
         ],
         "category" : "Bezalkoholowy",
-        "power": 0
+        "power": 0,
+        "metadata" : {
+            "resources": {
+                "image": "Frost_Ring"
+            }
+        }
     },
     {
         "name": {
@@ -234,7 +314,12 @@
             "woda sodowa"
         ],
         "category" : "Bezalkoholowy",
-        "power": 0
+        "power": 0,
+        "metadata" : {
+            "resources": {
+                "image": "Mirth"
+            }
+        }
     },
     {
         "name": {
@@ -245,7 +330,12 @@
             "?"
         ],
         "category" : "Bezalkoholowy",
-        "power": 0
+        "power": 0,
+        "metadata" : {
+            "resources": {
+                "image": "Forgetfulness"
+            }
+        }
     },
     {
         "name": {
@@ -260,7 +350,12 @@
             "Nieodkryty"
         ],
         "category" : "Bezalkoholowy",
-        "power": 0
+        "power": 0,
+        "metadata" : {
+            "resources": {
+                "image": "Water_Walk"
+            }
+        }
     },
     {
         "name": {
@@ -275,7 +370,12 @@
             "woda sodowa"
         ],
         "category" : "Słodki",
-        "power": 1
+        "power": 1,
+        "metadata" : {
+            "resources": {
+                "image": "Magic_Arrow"
+            }
+        }
     },
     {
         "name": {
@@ -292,7 +392,12 @@
             "cola"
         ],
         "category" : "Słodki",
-        "power": 4
+        "power": 4,
+        "metadata" : {
+            "resources": {
+                "image": "Dimension_Door"
+            }
+        }
     },
     {
         "name": {
@@ -305,7 +410,12 @@
             "sok z cytryny"
         ],
         "category" : "Słodki",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Lightning_Bolt"
+            }
+        }
     },
     {
         "name": {
@@ -318,7 +428,12 @@
             "sok z cytryny"
         ],
         "category" : "Słodki",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Precision"
+            }
+        }
     },
     {
         "name": {
@@ -331,7 +446,12 @@
             "grenadyna",
         ],
         "category" : "Słodki",
-        "power": 1
+        "power": 1,
+        "metadata" : {
+            "resources": {
+                "image": "Haste"
+            }
+        }
     },
     {
         "name" : {
@@ -346,7 +466,12 @@
             "sok z limonki"
         ],
         "category": "Słodki",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Fortune"
+            }
+        }
     },
     {
         "name" : {
@@ -362,7 +487,12 @@
             "imbir"
         ],
         "category": "Słodki",
-        "power": 3
+        "power": 3,
+        "metadata" : {
+            "resources": {
+                "image": "Fly"
+            }
+        }
     },
     {
         "name" : {
@@ -375,7 +505,12 @@
             "śmietanka"
         ],
         "category": "Słodki",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Protection_from_Air"
+            }
+        }
     },
     {
         "name" : {
@@ -388,7 +523,12 @@
             "sok z limonki"
         ],
         "category": "Słodki",
-        "power": 3
+        "power": 3,
+        "metadata" : {
+            "resources": {
+                "image": "Summon_Air_Elemental"
+            }
+        }
     },
     {
         "name" : {
@@ -402,7 +542,12 @@
             "sok z cytryny"
         ],
         "category" : "Słodki",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Disrupting_Ray"
+            }
+        }
     },
     {
         "name" : {
@@ -415,7 +560,12 @@
             "mleczko"
         ],
         "category" : "Słodki",
-        "power": 3
+        "power": 3,
+        "metadata" : {
+            "resources": {
+                "image": "Magic_Mirror"
+            }
+        }
     },
     {
         "name" : {
@@ -430,7 +580,12 @@
             "sok z limonki"
         ],
         "category" : "Słodki",
-        "power": 3
+        "power": 3,
+        "metadata" : {
+            "resources": {
+                "image": "Titan's_Lightning_Bolt"
+            }
+        }
     },
     {
         "name" : {
@@ -444,7 +599,12 @@
             "mleczko"
         ],
         "category" : "Słodki",
-        "power": 3
+        "power": 3,
+        "metadata" : {
+            "resources": {
+                "image": "Counterstrike"
+            }
+        }
     },
     {
         "name" : {
@@ -457,7 +617,12 @@
             "limonka",
         ],
         "category" : "Słodki",
-        "power": 1
+        "power": 1,
+        "metadata" : {
+            "resources": {
+                "image": "View_Air"
+            }
+        }
     },
     {
         "name" : {
@@ -472,7 +637,12 @@
             "białko kurze"
         ],
         "category" : "Słodki",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Disguise"
+            }
+        }
     },
     {
         "name" : {
@@ -486,7 +656,12 @@
             "sok z cytryny"
         ],
         "category" : "Słodki",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Visions"
+            }
+        }
     },
     {
         "name" : {
@@ -500,7 +675,12 @@
             "mleczko"
         ],
         "category" : "Słodki",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Destroy_Undead"
+            }
+        }
     },
     {
         "name" : {
@@ -515,7 +695,12 @@
             "sok żurawinowy"
         ],
         "category" : "Słodki",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Air_Shield"
+            }
+        }
     },
     {
         "name" : {
@@ -529,7 +714,12 @@
             "tabasco"
         ],
         "category" : "Słodki",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Hypnotize"
+            }
+        }
     },
     {
         "name" : {
@@ -544,6 +734,11 @@
             "białko kurze"
         ],
         "category" : "Słodki",
-        "power": 2
+        "power": 2,
+        "metadata" : {
+            "resources": {
+                "image": "Chain_Lightning"
+            }
+        }
     }
 ]
