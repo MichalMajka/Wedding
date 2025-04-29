@@ -2,12 +2,12 @@
 
 import Shelf from "@/blocks/spells/shelf";
 import DrinkDetails, {IDrink} from "@/blocks/details_popup";
-import React, {act} from "react";
+import React from "react";
 import ShelfTop from "@/blocks/spells/shelf_top";
 import ShelfBottom from "@/blocks/spells/shelf_bottom";
-import {Button} from "@headlessui/react";
 import SpellIcon from "@/blocks/spells/spell_icon";
 import MagicSchool from "@/blocks/spells/magic_school";
+import CategoryButton from "@/blocks/spells/category_button";
 
 const banners : { [id: string] : string; } = {
     "Słodki" : "air",
@@ -16,13 +16,17 @@ const banners : { [id: string] : string; } = {
     "Bezalkoholowy" : "water"
 }
 
+const categories : { [id: string] : string; } = {
+    "Słodki" : "Słodkie",
+    "Wytrawny" : "Wytrawne",
+    "Kwaśny" : "Kwaśne",
+    "Bezalkoholowy" : "Bezalkoholowe"
+}
+
 export default function Drinks({value}: { value: string }) {
     const [isOpen, setIsOpen] = React.useState(false);
     const [drink, setDrink] = React.useState<IDrink | null>(null);
     const [activeCategory, setActiveCategory] = React.useState<string>("Słodki");
-    const banner = () => {
-        return banners[activeCategory];
-    }
     
     const openDrink = (drink: IDrink) => {
         setDrink(drink)
@@ -48,7 +52,10 @@ export default function Drinks({value}: { value: string }) {
     return <>
         <DrinkDetails drink={drink} isOpen={isOpen} setIsOpen={setIsOpen}/>
         <div className="container">
-            <ShelfTop><MagicSchool name={banner()} className={"h-9/10"} /></ShelfTop>
+            <ShelfTop>
+                <MagicSchool name={banners[activeCategory]} className={"h-9/10"} />
+                <p className="text-left text-2xl md:text-4xl lg:text-5xl" >{categories[activeCategory]}</p>
+            </ShelfTop>
             {
                 drinksSplit().map((shelf, shelfIndex) => {
                     return <Shelf key={shelfIndex}>
@@ -65,21 +72,33 @@ export default function Drinks({value}: { value: string }) {
                 })
             }
             <ShelfBottom>
-                <Button
-                    className="bg-no-repeat bg-cover bg-[url(/images/buttons/air-magic.png)] h-9/10 aspect-179/202 flex justify-center items-center"
+                <CategoryButton
                     onClick={() => setActiveCategory("Słodki")}
+                    name={"Słodkie"}
+                    src={"/images/buttons/air.png"}
+                    alt={"Artefakt: Kula Powietrza"}
+                    enlarged={activeCategory == "Słodki"}
                 />
-                <Button
-                    className="bg-no-repeat bg-cover bg-[url(/images/buttons/water-magic.png)] h-9/10 aspect-179/202 flex justify-center items-center"
-                    onClick={() => setActiveCategory("Bezalkoholowy")}
-                />
-                <Button
-                    className="bg-no-repeat bg-cover bg-[url(/images/buttons/fire-magic.png)] h-9/10 aspect-179/202 flex justify-center items-center"
+                <CategoryButton
                     onClick={() => setActiveCategory("Wytrawny")}
+                    name={"Wytrawne"}
+                    src={"/images/buttons/fire.png"}
+                    alt={"Artefakt: Kula Ognia"}
+                    enlarged={activeCategory == "Wytrawny"}
                 />
-                <Button
-                    className="bg-no-repeat bg-cover bg-[url(/images/buttons/earth-magic.png)] h-9/10 aspect-179/202 flex justify-center items-center"
+                <CategoryButton
                     onClick={() => setActiveCategory("Kwaśny")}
+                    name={"Kwaśne"}
+                    src={"/images/buttons/earth.png"}
+                    alt={"Artefakt: Kula Ziemi"}
+                    enlarged={activeCategory == "Kwaśny"}
+                />
+                <CategoryButton
+                    onClick={() => setActiveCategory("Bezalkoholowy")}
+                    name={"Bezalko"}
+                    src={"/images/buttons/water.png"}
+                    alt={"Artefakt: Kula Wody"}
+                    enlarged={activeCategory == "Bezalkoholowy"}
                 />
             </ShelfBottom>
         </div>
