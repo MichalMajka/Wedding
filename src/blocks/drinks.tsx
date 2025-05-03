@@ -9,7 +9,7 @@ import SpellIcon from "@/blocks/spells/spell_icon";
 import MagicSchool from "@/blocks/spells/magic_school";
 import CategoryButton from "@/blocks/spells/category_button";
 
-const banners : { [id: string] : string; } = {
+export const banners : { [id: string] : string; } = {
     "Słodki" : "air",
     "Wytrawny" : "fire",
     "Kwaśny" : "earth",
@@ -64,7 +64,12 @@ export default function Drinks({value}: { value: string }) {
                                 return <div
                                     className="bg-no-repeat bg-cover bg-[url(/images/backgrounds/scroll.png)] h-9/10 aspect-326/237 flex justify-center items-center"
                                     onClick={() => openDrink(drink)} key={drinkIndex}>
-                                    <SpellIcon name={drink.metadata.resources.image} className="h-11/14" />
+                                    <SpellIcon
+                                        name={drink.metadata.resources.image}
+                                        className="h-11/14"
+                                        type={banners[drink.category]}
+                                        power={drink.power}
+                                    />
                                 </div>
                             })
                         }

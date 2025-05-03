@@ -5,6 +5,7 @@ import SpellIcon from "@/blocks/spells/spell_icon";
 import React, {useEffect} from "react";
 import {DialogContent} from "next/dist/client/components/react-dev-overlay/ui/components/dialog";
 import Image from "next/image";
+import {banners} from "@/blocks/drinks";
 
 export interface IDrink {
     name: {
@@ -40,7 +41,12 @@ export default function DrinkDetails({drink, isOpen, setIsOpen}: {
                     {drink.name.magic}
                 </p>
                 <div className={"w-full"}>
-                    <SpellIcon name={drink.metadata.resources.image} className={"w-1/1"}/>
+                    <SpellIcon
+                        name={drink.metadata.resources.image}
+                        className={"w-1/1 m-2"}
+                        power={drink.power}
+                        type={banners[drink.category]}
+                    />
                 </div>
             </DialogTitle>
         return <DialogTitle className="font-bold text-xl text-center mb-2">

@@ -32,3 +32,67 @@ html, body {
 {
   border-image: url("/images/backgrounds/popup/border.png") 20% 20% / 2.5rem / 1.2rem stretch;
 }
+
+.spell-border-air-1{
+  border-image: url("/images/spells/borders/air-1.png") 50% / 40% / 0 space;
+}
+
+.spell-border-air-2{
+  border-image: url("/images/spells/borders/air-2.png") 50% / 40% / 0 space;
+}
+
+.spell-border-air-3{
+  border-image: url("/images/spells/borders/air-3.png") 50% / 40% / 0 space;
+}
+
+.spell-border-air-4{
+  border-image: url("/images/spells/borders/air-4.png") 50% / 40% / 0 space;
+}
+
+.spell-border-fire-1{
+  border-image: url("/images/spells/borders/fire-1.png") 50% / 40% / 0 space;
+}
+
+.spell-border-fire-2{
+  border-image: url("/images/spells/borders/fire-2.png") 50% / 40% / 0 space;
+}
+
+.spell-border-fire-3{
+  border-image: url("/images/spells/borders/fire-3.png") 50% / 40% / 0 space;
+}
+
+.spell-border-fire-4{
+  border-image: url("/images/spells/borders/fire-4.png") 50% / 40% / 0 space;
+}
+
+.spell-border-earth-1{
+  border-image: url("/images/spells/borders/earth-1.png") 50% / 40% / 0 space;
+}
+
+.spell-border-earth-2{
+  border-image: url("/images/spells/borders/earth-2.png") 50% / 40% / 0 space;
+}
+
+.spell-border-earth-3{
+  border-image: url("/images/spells/borders/earth-3.png") 50% / 40% / 0 space;
+}
+
+.spell-border-earth-4{
+  border-image: url("/images/spells/borders/earth-4.png") 50% / 40% / 0 space;
+}
+
+.spell-border-water-1{
+  border-image: url("/images/spells/borders/water-1.png") 50% / 40% / 0 space;
+}
+
+.spell-border-water-2{
+  border-image: url("/images/spells/borders/water-2.png") 50% / 40% / 0 space;
+}
+
+.spell-border-water-3{
+  border-image: url("/images/spells/borders/water-3.png") 50% / 40% / 0 space;
+}
+
+.spell-border-water-4{
+  border-image: url("/images/spells/borders/water-4.png") 50% / 40% / 0 space;
+}
