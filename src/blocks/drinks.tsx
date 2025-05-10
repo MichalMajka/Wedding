@@ -27,6 +27,7 @@ export default function Drinks({value}: { value: string }) {
     const [isOpen, setIsOpen] = React.useState(false);
     const [drink, setDrink] = React.useState<IDrink | null>(null);
     const [activeCategory, setActiveCategory] = React.useState<string>("Słodki");
+    const drinks = (JSON.parse(value) as IDrink[]);
     
     const openDrink = (drink: IDrink) => {
         setDrink(drink)
@@ -34,7 +35,6 @@ export default function Drinks({value}: { value: string }) {
     }
 
     const drinksSplit = () => {
-        const drinks = (JSON.parse(value) as IDrink[]);
 
         const categories = new Set(drinks.map(x => x.category));
         const byCategory = [...categories].map(x => {
@@ -54,7 +54,7 @@ export default function Drinks({value}: { value: string }) {
         <div className="container">
             <ShelfTop>
                 <MagicSchool name={banners[activeCategory]} className={"h-9/10"} />
-                <p className="text-left text-2xl md:text-4xl lg:text-5xl" >{categories[activeCategory]}</p>
+                <p className="text-left text-2xl md:text-4xl lg:text-5xl text-white" >{categories[activeCategory]}</p>
             </ShelfTop>
             {
                 drinksSplit().map((shelf, shelfIndex) => {

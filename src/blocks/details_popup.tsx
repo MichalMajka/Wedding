@@ -37,13 +37,13 @@ export default function DrinkDetails({drink, isOpen, setIsOpen}: {
             return null
         if (!preview)
             return <DialogTitle className="font-bold text-xl flex items-end justify-between mb-4 -mt-4">
-                <p className={"w-5/10 z-5 align-text-bottom"}>
+                <p className={"w-1/2 z-5 align-text-bottom"}>
                     {drink.name.magic}
                 </p>
-                <div className={"w-full"}>
+                <div className={"w-1/3"}>
                     <SpellIcon
                         name={drink.metadata.resources.image}
-                        className={"w-1/1 m-2"}
+                        className={"w-1/1 m-2 mb-5 max-w-[100px]"}
                         power={drink.power}
                         type={banners[drink.category]}
                     />
