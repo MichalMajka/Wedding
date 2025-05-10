@@ -9,33 +9,52 @@ import SpellIcon from "@/blocks/spells/spell_icon";
 import MagicSchool from "@/blocks/spells/magic_school";
 import CategoryButton from "@/blocks/spells/category_button";
 
-export const banners : { [id: string] : string; } = {
-    "Słodki" : "air",
-    "Wytrawny" : "fire",
-    "Kwaśny" : "earth",
-    "Bezalkoholowy" : "water"
+export const banners: { [id: string]: string; } = {
+    "Słodki": "air",
+    "Wytrawny": "fire",
+    "Kwaśny": "earth",
+    "Bezalkoholowy": "water"
 }
 
-const categories : { [id: string] : string; } = {
-    "Słodki" : "Słodkie",
-    "Wytrawny" : "Wytrawne",
-    "Kwaśny" : "Kwaśne",
-    "Bezalkoholowy" : "Bezalkoholowe"
-}
+const categoryGallery: { key: string, name: string, src: string, alt: string }[] = [
+    {
+        "key": "Słodki",
+        "name": "Słodkie",
+        "src": "/images/buttons/air.png",
+        "alt": "Artefakt: Kula Powietrza"
+    },
+    {
+        "key": "Wytrawny",
+        "name": "Wytrawne",
+        "src": "/images/buttons/fire.png",
+        "alt": "Artefakt: Kula Ognia"
+    },
+    {
+        "key": "Kwaśny",
+        "name": "Kwaśne",
+        "src": "/images/buttons/earth.png",
+        "alt": "Artefakt: Kula Ziemi"
+    },
+    {
+        "key": "Bezalkoholowy",
+        "name": "Bezalko",
+        "src": "/images/buttons/water.png",
+        "alt": "Artefakt: Kula Wody"
+    }
+]
 
 export default function Drinks({value}: { value: string }) {
     const [isOpen, setIsOpen] = React.useState(false);
     const [drink, setDrink] = React.useState<IDrink | null>(null);
-    const [activeCategory, setActiveCategory] = React.useState<string>("Słodki");
+    const [activeCategory, setActiveCategory] = React.useState<string>(categoryGallery[0].key);
     const drinks = (JSON.parse(value) as IDrink[]);
-    
+
     const openDrink = (drink: IDrink) => {
         setDrink(drink)
         setIsOpen(true);
     }
 
     const drinksSplit = () => {
-
         const categories = new Set(drinks.map(x => x.category));
         const byCategory = [...categories].map(x => {
             return {
@@ -53,8 +72,8 @@ export default function Drinks({value}: { value: string }) {
         <DrinkDetails drink={drink} isOpen={isOpen} setIsOpen={setIsOpen}/>
         <div className="container">
             <ShelfTop>
-                <MagicSchool name={banners[activeCategory]} className={"h-9/10"} />
-                <p className="text-left text-2xl md:text-4xl lg:text-5xl text-white" >{categories[activeCategory]}</p>
+                <MagicSchool name={banners[activeCategory]} className={"h-9/10"}/>
+                <p className="text-left text-2xl md:text-4xl lg:text-5xl text-white">{categoryGallery.find(x => x.key === activeCategory)!.name}</p>
             </ShelfTop>
             {
                 drinksSplit().map((shelf, shelfIndex) => {
@@ -77,34 +96,18 @@ export default function Drinks({value}: { value: string }) {
                 })
             }
             <ShelfBottom>
-                <CategoryButton
-                    onClick={() => setActiveCategory("Słodki")}
-                    name={"Słodkie"}
-                    src={"/images/buttons/air.png"}
-                    alt={"Artefakt: Kula Powietrza"}
-                    enlarged={activeCategory == "Słodki"}
-                />
-                <CategoryButton
-                    onClick={() => setActiveCategory("Wytrawny")}
-                    name={"Wytrawne"}
-                    src={"/images/buttons/fire.png"}
-                    alt={"Artefakt: Kula Ognia"}
-                    enlarged={activeCategory == "Wytrawny"}
-                />
-                <CategoryButton
-                    onClick={() => setActiveCategory("Kwaśny")}
-                    name={"Kwaśne"}
-                    src={"/images/buttons/earth.png"}
-                    alt={"Artefakt: Kula Ziemi"}
-                    enlarged={activeCategory == "Kwaśny"}
-                />
-                <CategoryButton
-                    onClick={() => setActiveCategory("Bezalkoholowy")}
-                    name={"Bezalko"}
-                    src={"/images/buttons/water.png"}
-                    alt={"Artefakt: Kula Wody"}
-                    enlarged={activeCategory == "Bezalkoholowy"}
-                />
+                {
+                    Object.values(categoryGallery).map((category, index) => {
+                        return <CategoryButton
+                            key={index}
+                            onClick={() => setActiveCategory(category.key)}
+                            name={category.name}
+                            src={category.src}
+                            alt={category.alt}
+                            enlarged={activeCategory == category.key}
+                        />
+                    })
+                }
             </ShelfBottom>
         </div>
     </>
