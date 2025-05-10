@@ -2,12 +2,14 @@
 
 import Shelf from "@/blocks/spells/shelf";
 import DrinkDetails, {IDrink} from "@/blocks/details_popup";
-import React from "react";
+import React, {use, useEffect} from "react";
 import ShelfTop from "@/blocks/spells/shelf_top";
 import ShelfBottom from "@/blocks/spells/shelf_bottom";
 import SpellIcon from "@/blocks/spells/spell_icon";
 import MagicSchool from "@/blocks/spells/magic_school";
 import CategoryButton from "@/blocks/spells/category_button";
+import Loading from "@/blocks/loading";
+import {randomInt} from "node:crypto";
 
 export const banners: { [id: string]: string; } = {
     "Słodki": "air",
@@ -45,6 +47,8 @@ const categoryGallery: { key: string, name: string, src: string, alt: string }[]
 
 export default function Drinks({value}: { value: string }) {
     const [isOpen, setIsOpen] = React.useState(false);
+    const [initialized, setInitialized] = React.useState(false);
+    const [loading, setLoading] = React.useState(true);
     const [drink, setDrink] = React.useState<IDrink | null>(null);
     const [activeCategory, setActiveCategory] = React.useState<string>(categoryGallery[0].key);
     const drinks = (JSON.parse(value) as IDrink[]);
@@ -67,48 +71,63 @@ export default function Drinks({value}: { value: string }) {
         const pageSize = currentCategoryDrinks.length > 10 ? 3 : 2
         return [...Array(Math.ceil(largestCategory / 3))].map(_ => currentCategoryDrinks.splice(0, pageSize));
     }
-
+    
+    const drinksOnShelf = drinksSplit()
+    
+    useEffect(() => {
+        const loadingTime = Math.floor(3000 + (Math.random() * 5000));
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, loadingTime);
+        return () => clearTimeout(timer);
+    }, [])
+    
     return <>
-        <DrinkDetails drink={drink} isOpen={isOpen} setIsOpen={setIsOpen}/>
-        <div className="container">
-            <ShelfTop>
-                <MagicSchool name={banners[activeCategory]} className={"h-9/10"}/>
-                <p className="text-left text-2xl md:text-4xl lg:text-5xl text-white">{categoryGallery.find(x => x.key === activeCategory)!.name}</p>
-            </ShelfTop>
-            {
-                drinksSplit().map((shelf, shelfIndex) => {
-                    return <Shelf key={shelfIndex}>
+        <Loading isOpen={loading} onLoad={() => setInitialized(true)} />
+        {
+            initialized && <>
+                <DrinkDetails drink={drink} isOpen={isOpen} setIsOpen={setIsOpen}/>
+                <div className="container">
+                    <ShelfTop>
+                        <MagicSchool name={banners[activeCategory]} className={"h-9/10"}/>
+                        <p className="text-left text-2xl md:text-4xl lg:text-5xl text-white">{categoryGallery.find(x => x.key === activeCategory)!.name}</p>
+                    </ShelfTop>
+                    {
+                        drinksOnShelf.map((shelf, shelfIndex) => {
+                            return <Shelf key={shelfIndex}>
+                                {
+                                    shelf.map((drink, drinkIndex) => {
+                                        return <div
+                                            className="bg-no-repeat bg-cover bg-[url(/images/backgrounds/scroll.png)] h-9/10 aspect-326/237 flex justify-center items-center"
+                                            onClick={() => openDrink(drink)} key={drinkIndex}>
+                                            <SpellIcon
+                                                name={drink.metadata.resources.image}
+                                                className="h-11/14"
+                                                type={banners[drink.category]}
+                                                power={drink.power}
+                                            />
+                                        </div>
+                                    })
+                                }
+                            </Shelf>
+                        })
+                    }
+                    <ShelfBottom>
                         {
-                            shelf.map((drink, drinkIndex) => {
-                                return <div
-                                    className="bg-no-repeat bg-cover bg-[url(/images/backgrounds/scroll.png)] h-9/10 aspect-326/237 flex justify-center items-center"
-                                    onClick={() => openDrink(drink)} key={drinkIndex}>
-                                    <SpellIcon
-                                        name={drink.metadata.resources.image}
-                                        className="h-11/14"
-                                        type={banners[drink.category]}
-                                        power={drink.power}
-                                    />
-                                </div>
+                            Object.values(categoryGallery).map((category, index) => {
+                                return <CategoryButton
+                                    key={index}
+                                    onClick={() => setActiveCategory(category.key)}
+                                    name={category.name}
+                                    src={category.src}
+                                    alt={category.alt}
+                                    enlarged={activeCategory == category.key}
+                                />
                             })
                         }
-                    </Shelf>
-                })
-            }
-            <ShelfBottom>
-                {
-                    Object.values(categoryGallery).map((category, index) => {
-                        return <CategoryButton
-                            key={index}
-                            onClick={() => setActiveCategory(category.key)}
-                            name={category.name}
-                            src={category.src}
-                            alt={category.alt}
-                            enlarged={activeCategory == category.key}
-                        />
-                    })
-                }
-            </ShelfBottom>
-        </div>
+                    </ShelfBottom>
+                </div>
+            </>
+        }
     </>
 }

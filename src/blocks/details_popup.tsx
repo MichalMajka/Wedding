@@ -28,6 +28,7 @@ export default function DrinkDetails({drink, isOpen, setIsOpen}: {
     setIsOpen: Function
 }) {
     const [preview, setPreview] = React.useState<boolean>(false);
+    const [previewLoading, setPreviewLoading] = React.useState(false);
     useEffect(() => {
         setPreview(false)
     }, [drink])
@@ -53,7 +54,7 @@ export default function DrinkDetails({drink, isOpen, setIsOpen}: {
                 {drink.name.mundane}
         </DialogTitle>
     }
-
+    
     const content = () => {
         if (!drink)
             return;
@@ -71,7 +72,21 @@ export default function DrinkDetails({drink, isOpen, setIsOpen}: {
                 </ul>
             </DialogContent>
         return <DialogContent className="flex items-center justify-center">
+            {
                 <Image
+                    className={"hidden"}
+                    loading="eager"
+                    width={200}
+                    height={400}
+                    onLoad={() => {
+                        setPreviewLoading(false)
+                    }}
+                    src={`/images/drinks/${drink.metadata.resources.image}.png`}
+                    alt={`Drink Photo: ${drink.metadata.resources.image}`}
+                />
+            }
+            {
+                !previewLoading && <Image
                     className={"image-blurred-edge"}
                     loading="eager"
                     width={200}
@@ -79,6 +94,16 @@ export default function DrinkDetails({drink, isOpen, setIsOpen}: {
                     src={`/images/drinks/${drink.metadata.resources.image}.png`}
                     alt={`Drink Photo: ${drink.metadata.resources.image}`}
                 />
+            }
+            {
+                previewLoading && <Image
+                    src={"/images/loading.gif"}
+                    loading={"eager"}
+                    height={64}
+                    width={58}
+                    alt={"Loading Icon: Spinning Hourglass"}
+                />
+            }
         </DialogContent>
     }
 
@@ -94,7 +119,10 @@ export default function DrinkDetails({drink, isOpen, setIsOpen}: {
                     <div className="flex justify-between items-center mt-10">
                         <button
                             className={"border-white border-1 p-2"}
-                            onClick={() => setPreview(x => !x)}>
+                            onClick={() => {
+                                setPreviewLoading(true)
+                                setPreview(x => !x)
+                            }}>
                             {preview ? "Powrót" : "Podgląd"}
                         </button>
                         <button
