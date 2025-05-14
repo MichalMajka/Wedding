@@ -9,7 +9,6 @@ import SpellIcon from "@/blocks/spells/spell_icon";
 import MagicSchool from "@/blocks/spells/magic_school";
 import CategoryButton from "@/blocks/spells/category_button";
 import Loading from "@/blocks/loading";
-import {randomInt} from "node:crypto";
 
 export const banners: { [id: string]: string; } = {
     "Słodki": "air",

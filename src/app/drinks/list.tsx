@@ -343,11 +343,9 @@
             "mundane": "Niezły Ananasek"
         },
         "components": [
-            "Nieodkryty",
-            "Nieodkryty",
-            "Nieodkryty",
-            "Nieodkryty",
-            "Nieodkryty"
+            "marakuja",
+            "sok pomarańczowy",
+            "sok ananasowy"
         ],
         "category" : "Bezalkoholowy",
         "power": 0,
